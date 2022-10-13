@@ -1,0 +1,32 @@
+platform: linux
+
+image_resource:
+  type: registry-image
+  source:
+    repository: hashicorp/terraform
+    tag: 1.1.5
+
+inputs:
+  - name: fortigate-ibm-single-repo
+outputs:
+  - name: fortigate-ibm-single-repo
+run:
+  path: terraform
+  dir: fortigate-ibm-single-repo
+  args:
+    - apply
+    - -auto-approve
+    - -var
+    - SSH_PUBLIC_KEY=((ibm_ci.ssh_public_key))
+    - -var
+    - VPC=((ibm_ci_single.vpc))
+    - -var
+    - SUBNET_1=((ibm_ci_single.subnet_1))
+    - -var
+    - SUBNET_2=((ibm_ci_single.subnet_2))
+    - -var
+    - SECURITY_GROUP=((ibm_ci_single.security_group))
+    - -var
+    - CLUSTER_NAME=fgt-single-concourse-ci
+    - -var
+    - IBMCLOUD_API_KEY=((ibm_ci.ibmcloud_api_key))
