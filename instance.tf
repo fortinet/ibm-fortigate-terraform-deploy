@@ -22,13 +22,13 @@ resource "ibm_is_instance" "fgt1" {
   primary_network_attachment {
     name = "${var.cluster_name}-fgt-port1-${random_string.random_suffix.result}"
     virtual_network_interface {
-      id = ibm_is_virtual_network_interface.vni-passive["interface1"].id
+      id = ibm_is_virtual_network_interface.vni-port1.id
     }
   }
   network_attachments {
     name = "${var.cluster_name}-fgt-port2-${random_string.random_suffix.result}"
     virtual_network_interface {
-      id = ibm_is_virtual_network_interface.vni-passive["interface2"].id
+      id = ibm_is_virtual_network_interface.vni-port2.id
     }
   }
 
