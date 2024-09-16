@@ -14,7 +14,6 @@ data "ibm_is_security_group" "fgt_security_group" {
 }
 
 resource "ibm_is_virtual_network_interface" "vni-active" {
-  depends_on = [ ibm_is_instance.fgt1 ]
   name                      = "${var.CLUSTER_NAME}-fgt-interface1-${random_string.random_suffix.result}"
   allow_ip_spoofing         = false
   auto_delete               = false
@@ -25,7 +24,6 @@ resource "ibm_is_virtual_network_interface" "vni-active" {
 }
 
 resource "ibm_is_virtual_network_interface" "vni-passive" {
-  depends_on = [ ibm_is_instance.fgt1 ]
   name                      = "${var.CLUSTER_NAME}-fgt-interface2-${random_string.random_suffix.result}"
   allow_ip_spoofing         = false
   auto_delete               = false
