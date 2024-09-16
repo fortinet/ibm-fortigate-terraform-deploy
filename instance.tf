@@ -11,7 +11,12 @@ resource "ibm_is_volume" "logDisk" {
 
 resource "ibm_is_floating_ip" "publicip" {
   name   = "${var.cluster_name}-publicip-${random_string.random_suffix.result}"
-  target = ibm_is_instance.fgt1.primary_network_interface[0].id
+  zone   = var.zone
+}
+
+resource "ibm_is_virtual_network_interface_floating_ip" "public_ip" {
+  virtual_network_interface = ibm_is_virtual_network_interface.vni-port1.id
+  floating_ip               = ibm_is_floating_ip.publicip.id
 }
 
 resource "ibm_is_instance" "fgt1" {
