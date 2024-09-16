@@ -19,16 +19,17 @@ resource "ibm_is_instance" "fgt1" {
   image   = ibm_is_image.vnf_custom_image.id
   profile = var.profile
 
-  primary_network_interface {
-    name            = "${var.cluster_name}-port1-${random_string.random_suffix.result}"
-    subnet          = data.ibm_is_subnet.subnet1.id
-    security_groups = [data.ibm_is_security_group.fgt_security_group.id]
+  primary_network_attachment {
+    name = "${var.CLUSTER_NAME}-fgt-port1-${random_string.random_suffix.result}"
+    virtual_network_interface {
+      id = ibm_is_virtual_network_interface.vni-passive["interface1"].id
+    }
   }
-
-  network_interfaces {
-    name            = "${var.cluster_name}-port2-${random_string.random_suffix.result}"
-    subnet          = data.ibm_is_subnet.subnet2.id
-    security_groups = [data.ibm_is_security_group.fgt_security_group.id]
+  network_attachments {
+    name = "${var.CLUSTER_NAME}-fgt-port2-${random_string.random_suffix.result}"
+    virtual_network_interface {
+      id = ibm_is_virtual_network_interface.vni-passive["interface2"].id
+    }
   }
 
   volumes = [ibm_is_volume.logDisk.id]
