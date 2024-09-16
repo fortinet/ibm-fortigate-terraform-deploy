@@ -10,8 +10,8 @@ resource "ibm_is_volume" "logDisk" {
 }
 
 resource "ibm_is_floating_ip" "publicip" {
-  name   = "${var.cluster_name}-publicip-${random_string.random_suffix.result}"
-  zone   = var.zone1
+  name = "${var.cluster_name}-publicip-${random_string.random_suffix.result}"
+  zone = var.zone1
 }
 
 resource "ibm_is_virtual_network_interface_floating_ip" "public_ip" {
