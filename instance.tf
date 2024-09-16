@@ -10,8 +10,13 @@ resource "ibm_is_volume" "logDisk" {
 }
 
 resource "ibm_is_floating_ip" "publicip" {
-  name   = "${var.cluster_name}-publicip-${random_string.random_suffix.result}"
-  target = ibm_is_instance.fgt1.primary_network_interface[0].id
+  name = "${var.cluster_name}-publicip-${random_string.random_suffix.result}"
+  zone = var.zone1
+}
+
+resource "ibm_is_virtual_network_interface_floating_ip" "public_ip" {
+  virtual_network_interface = ibm_is_virtual_network_interface.vni-port1.id
+  floating_ip               = ibm_is_floating_ip.publicip.id
 }
 
 resource "ibm_is_instance" "fgt1" {
@@ -19,16 +24,17 @@ resource "ibm_is_instance" "fgt1" {
   image   = ibm_is_image.vnf_custom_image.id
   profile = var.profile
 
-  primary_network_interface {
-    name            = "${var.cluster_name}-port1-${random_string.random_suffix.result}"
-    subnet          = data.ibm_is_subnet.subnet1.id
-    security_groups = [data.ibm_is_security_group.fgt_security_group.id]
+  primary_network_attachment {
+    name = "${var.cluster_name}-fgt-port1-${random_string.random_suffix.result}"
+    virtual_network_interface {
+      id = ibm_is_virtual_network_interface.vni-port1.id
+    }
   }
-
-  network_interfaces {
-    name            = "${var.cluster_name}-port2-${random_string.random_suffix.result}"
-    subnet          = data.ibm_is_subnet.subnet2.id
-    security_groups = [data.ibm_is_security_group.fgt_security_group.id]
+  network_attachments {
+    name = "${var.cluster_name}-fgt-port2-${random_string.random_suffix.result}"
+    virtual_network_interface {
+      id = ibm_is_virtual_network_interface.vni-port2.id
+    }
   }
 
   volumes = [ibm_is_volume.logDisk.id]
