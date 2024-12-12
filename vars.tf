@@ -63,10 +63,10 @@ resource "random_string" "random_suffix" {
 }
 
 // FortiOS Custom Image ID
-// https://docs.fortinet.com/vm/ibm/fortigate/6.4/ibm-cloud-cookbook/6.4.2/992669/deploying-fortigate-vm-on-ibm-cloud
-// Deploys 7.6.0 image
+// https://docs.fortinet.com/document/fortigate-public-cloud/7.6.0/ibm-cloud-administration-guide/992669/deploying-fortigate-vm-on-ibm-cloud
+// Deploys 7.6.1 image
 variable "image" {
-  default = "cos://us-geo/fortinet/fortigate_byol_760_b3401_GA.qcow2"
+  default = "cos://us-geo/fortinet/fortigate_byol_761_b3457_GA.qcow2"
 }
 //For more details see: https://cloud.ibm.com/docs/account?topic=account-userapikey
 variable "ibmcloud_api_key" {
