@@ -66,7 +66,7 @@ resource "random_string" "random_suffix" {
 // https://docs.fortinet.com/document/fortigate-public-cloud/7.6.0/ibm-cloud-administration-guide/992669/deploying-fortigate-vm-on-ibm-cloud
 // Deploys 7.6.2 image
 variable "image" {
-  default = "cos://us-geo/fortinet/fortigate_byol_762_b3462_GA.qcow2"
+  default = "cos://us-geo/fortinet/fortigate_byol_763_b3510_GA.qcow2"
 }
 //For more details see: https://cloud.ibm.com/docs/account?topic=account-userapikey
 variable "ibmcloud_api_key" {
