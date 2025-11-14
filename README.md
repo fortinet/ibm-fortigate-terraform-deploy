@@ -26,15 +26,15 @@ Terraform deploys the following components:
 
 > **Note** For Subnets, put the UUID of the subnet. Not the name
 
- ![IBM FortiGate Deploy](https://raw.githubusercontent.com/fortinet/ibm-fortigate-terraform-deploy/main/imgs/step_6_a.png)
+ ![IBM FortiGate Deploy](imgs/step_6_a.png)
 
 
 2. Apply the Plan.
 
 3. Outputs, such as the **Public IP** and **Default username and password** can be found under the `View Log` link.
 
-    ![IBM FortiGate Deploy](https://raw.githubusercontent.com/fortinet/ibm-fortigate-terraform-deploy/main/imgs/step_6_a.png)
-    ![IBM FortiGate Deploy](https://raw.githubusercontent.com/fortinet/ibm-fortigate-terraform-deploy/main/imgs/step_6_b.png)
+    ![IBM FortiGate Deploy](imgs/step_6_a.png)
+    ![IBM FortiGate Deploy](imgs/step_6_b.png)
 
     See below for info on destroying the cluster.
 
@@ -46,23 +46,23 @@ Deploying This package from IBM Schematics is possible. To do so navigate to the
 2. Fill in the workspace info and create your workspace.
 3. Copy the repo URL into repository URL field and then select Terraform version 0.13.
 
-    ![IBM FortiGate Deploy](https://raw.githubusercontent.com/fortinet/ibm-fortigate-terraform-deploy/main/imgs/step_3.png)
+    ![IBM FortiGate Deploy](imgs/step_3.png)
 
 4. Add in and adjust any Variables as needed in the settings.
 
-    ![IBM FortiGate Deploy](https://raw.githubusercontent.com/fortinet/ibm-fortigate-terraform-deploy/main/imgs/step_6_a.png)
+    ![IBM FortiGate Deploy](imgs/step_6_a.png)
 
 5. Apply the plan.
 6. Outputs, such as the **Public IP** and **Default username and password** can be found under the `View Log` link.
 
-    ![IBM FortiGate Deploy](https://raw.githubusercontent.com/fortinet/ibm-fortigate-terraform-deploy/main/imgs/step_6_a.png)
-    ![IBM FortiGate Deploy](https://raw.githubusercontent.com/fortinet/ibm-fortigate-terraform-deploy/main/imgs/step_6_b.png)
+    ![IBM FortiGate Deploy](imgs/step_6_a.png)
+    ![IBM FortiGate Deploy](imgs/step_6_b.png)
 
 ## Destroy the cluster
 
 To destroy the cluster, click on `Actions...`->`Destroy`
 
-![IBM FortiGate Deploy](https://raw.githubusercontent.com/fortinet/ibm-fortigate-terraform-deploy/main/imgs/destroy_cluster.png)
+![IBM FortiGate Deploy](imgs/destroy_cluster.png)
 
 # Support
 
