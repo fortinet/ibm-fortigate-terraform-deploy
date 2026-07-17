@@ -40,10 +40,16 @@ variable "subnet2" {
   description = "The ID of the Secondary, Private Subnet Used for port2 on the FortiGate"
 }
 
-variable "security_group" {
+variable "security_group_port1" {
   type        = string
   default     = ""
-  description = "The Security Group to attach to the FortiGate Instance Network Interfaces."
+  description = "The Security Group to attach to the FortiGate Instance Network Interface Port1."
+}
+
+variable "security_group_port2" {
+  type        = string
+  default     = ""
+  description = "The Security Group to attach to the FortiGate Instance Network Interface Port2."
 }
 
 // Name will be in the format of cluster_name-RESOURCE-randomSuffix to be easily identifiable.
