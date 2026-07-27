@@ -9,12 +9,12 @@ output "Custom_Image_Name" {
 
 output "Security_Group_Port1_Name" {
   description = "The name of the security group attached to FortiGate port1"
-  value       = local.security_group_port1_name
+  value       = ibm_is_security_group.fgt_security_group_port1.name
 }
 
 output "Security_Group_Port2_Name" {
   description = "The name of the security group attached to FortiGate port2"
-  value       = local.security_group_port2_name
+  value       = ibm_is_security_group.fgt_security_group_port2.name
 }
 
 output "Username" {
