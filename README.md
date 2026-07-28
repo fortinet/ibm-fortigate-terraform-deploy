@@ -8,9 +8,9 @@ Deploy a single BYOL FortiGate in IBM Cloud using the Schematics service.
 
 This deployment requires that you already have the following already configured:
 
--   A VPC
--   Two subnets
--   An ssh key
+-   [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) 0.13+
+-   [A VPC with two subnets in a single zone](https://cloud.ibm.com/docs/vpc/vpc-getting-started-with-ibm-cloud-virtual-private-cloud-infrastructure)
+-   [A configured IBM SSH key](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys)
 -   [A public gateway](https://cloud.ibm.com/docs/vpc?topic=vpc-about-public-gateways) attached to the public subnet (its ID is a required input)
 
 Terraform deploys the following components:
