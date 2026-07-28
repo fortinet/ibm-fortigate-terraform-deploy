@@ -40,12 +40,6 @@ variable "subnet2" {
   description = "The ID of the Secondary, Private Subnet Used for port2 on the FortiGate"
 }
 
-variable "security_group" {
-  type        = string
-  default     = ""
-  description = "The Security Group to attach to the FortiGate Instance Network Interfaces."
-}
-
 // Name will be in the format of cluster_name-RESOURCE-randomSuffix to be easily identifiable.
 // Name must be lowercase
 variable "cluster_name" {
@@ -85,4 +79,9 @@ variable "user_data" {
   type        = string
   default     = "user_data.conf"
   description = "The Custom Bootstrap Data file name."
+}
+
+variable "public_gateway_id" {
+  type        = string
+  description = "The Public Gateway ID for the Public Subnet"
 }
