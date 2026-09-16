@@ -58,9 +58,9 @@ resource "random_string" "random_suffix" {
 
 // FortiOS Custom Image ID
 // https://docs.fortinet.com/document/fortigate-public-cloud/latest/ibm-cloud-administration-guide/992669/deploying-fortigate-vm-on-ibm-cloud
-// Deploys 7.6.7 image
+// Deploys 8.0.1 image
 variable "image" {
-  default = "cos://us-geo/fortinet/fortigate_byol_767_b3704_GA.qcow2"
+  default = "cos://us-geo/fortinet/fortigate_byol_801_b0245_ga.qcow2"
 }
 //For more details see: https://cloud.ibm.com/docs/account?topic=account-userapikey
 variable "ibmcloud_api_key" {
